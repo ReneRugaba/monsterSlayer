@@ -88,4 +88,28 @@
   height: 2rem;
 }
 
+.actionGame {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.playerAction {
+  background-color: #2121f8;
+  margin: 0;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.monsterAction {
+  background-color: #f74949;
+  margin: 0;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=style.css.map */

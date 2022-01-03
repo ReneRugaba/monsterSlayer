@@ -6,6 +6,7 @@ const barrePlayer = document.querySelector(".barrePlayer");
 const specialAttack = document.querySelector(".specialAttack");
 const healButton = document.querySelector(".heal");
 const giveUpButton = document.querySelector(".giveUp");
+const areaAction = document.querySelector(".actionGame");
 let damagePlayer = 0;
 let damageMonster = 0;
 let lifePlayer = 100;
@@ -28,7 +29,7 @@ function damageFunction(e){
     barrePlayer.childNodes[1].innerText=`${lifePlayer} %`;
     barreMonster.style.width = `${monsterLife}%`;
     barreMonster.childNodes[1].innerText = `${monsterLife} %`
-
+    setInActionArea(damageMonster,damagePlayer);
 }
 
 function specialDamageFunction(e){
@@ -41,6 +42,8 @@ function specialDamageFunction(e){
     barrePlayer.childNodes[1].innerText=`${lifePlayer} %`;
     barreMonster.style.width = `${monsterLife}%`;
     barreMonster.childNodes[1].innerText = `${monsterLife} %`
+    setInActionArea(damageMonster,damagePlayer);
+
 }
 
 function healPlayer (e){
@@ -62,7 +65,25 @@ function giveUp(){
     barreMonster.style.width = `${monsterLife}%`;
     barreMonster.childNodes[1].innerText = `${monsterLife} %`
     alert("GAME OVER");
+    setInActionArea(0,0,true)
 }
+
+function setInActionArea(playerDamage, monsterDamage,end=false){
+    if(!end){
+        const pPlayer = document.createElement("p");
+        const pMonster = document.createElement("p");
+        pPlayer.innerText= `Le player a infligé au montre ${playerDamage} de dégats`;
+        pPlayer.setAttribute("class","playerAction")
+        pMonster.innerText=`Le monstre a infligé au player ${monsterDamage} de dégats`;
+        pMonster.setAttribute("class","monsterAction")
+        areaAction.appendChild(pPlayer)
+        areaAction.appendChild(pMonster)
+    }else{
+        areaAction.innerHTML="";
+    }
+}
+
+
 
 giveUpButton.addEventListener("click", giveUp)
 
