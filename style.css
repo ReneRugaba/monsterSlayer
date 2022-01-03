@@ -1,0 +1,91 @@
+.lifeBarre {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.player {
+  margin: 1em;
+  border: solid black;
+  color: white;
+  width: 30%;
+  height: 2rem;
+  background-color: gray;
+  margin: 0;
+}
+
+.barrePlayer {
+  padding: 0;
+  background-color: green;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.monster {
+  margin: 1em;
+  border: solid black;
+  width: 30%;
+  color: white;
+  background-color: gray;
+  height: 2rem;
+  margin: 0;
+}
+
+.barreMonster {
+  padding: 0;
+  background-color: green;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameStart {
+  display: none;
+  width: 30%;
+}
+
+.bottonLocation {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  box-shadow: 3px 2px 3px black;
+}
+
+.startButton {
+  background-color: greenyellow;
+  width: 5%;
+  height: 2rem;
+}
+
+.attackButton {
+  background-color: red;
+  width: 15%;
+  height: 2rem;
+}
+
+.specialAttack {
+  background-color: orange;
+  width: 25%;
+  height: 2rem;
+}
+
+.heal {
+  background-color: greenyellow;
+  width: 25%;
+  height: 2rem;
+}
+
+.giveUp {
+  width: 25%;
+  height: 2rem;
+}
+
+/*# sourceMappingURL=style.css.map */
