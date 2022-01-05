@@ -3,6 +3,9 @@
   display: flex;
   justify-content: space-around;
 }
+.lifeBarre h1 {
+  margin: 0;
+}
 
 .player {
   margin: 1em;

@@ -2,6 +2,9 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
+    h1{
+        margin: 0;
+    }
 }
 
 .player{
@@ -12,6 +15,8 @@
     height: 2rem;
     background-color: gray;
     margin: 0;
+
+   
 }
 
 .barrePlayer{
