@@ -64,6 +64,8 @@ function giveUp(){
     barrePlayer.childNodes[1].innerText=`${lifePlayer} %`;
     barreMonster.style.width = `${monsterLife}%`;
     barreMonster.childNodes[1].innerText = `${monsterLife} %`
+    buttonStart.style.display = "block";
+    buttonsGameStart.style.display= "none";
     alert("GAME OVER");
     setInActionArea(0,0,true)
 }
