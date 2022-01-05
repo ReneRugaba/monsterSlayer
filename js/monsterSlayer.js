@@ -70,13 +70,15 @@ function specialDamageFunction(e){
  */
 function healPlayer (e){
     e.stopPropagation();
+   if (monsterLife<100 && lifePlayer<100) {
     damagePlayer = Math.floor(Math.random()*(10-5)+5);
     lifePlayer = lifePlayer - damagePlayer;
     barrePlayer.style.width = `${lifePlayer}%`;
     lifePlayer = lifePlayer + heal
-    barrePlayer.style.width = `${lifePlayer}%`;
-    barrePlayer.childNodes[1].innerText=`${lifePlayer} %`;
-   
+    barrePlayer.style.width =lifePlayer>=100?"100%": `${lifePlayer}%`;
+    barrePlayer.childNodes[1].innerText=lifePlayer>=100?"100 %":`${lifePlayer} %`;
+    setInActionArea(heal,damagePlayer,false,true);
+   }
 }
 
 /**
@@ -101,12 +103,12 @@ function giveUp(){
  * @param {Number} monsterDamage 
  * @param {Boolean} end 
  */
-function setInActionArea(playerDamage, monsterDamage,end=false){
+function setInActionArea(playerDamage, monsterDamage,end=false,heal=false){
     if(!end){
         const pPlayer = document.createElement("p");
         const pMonster = document.createElement("p");
-        pPlayer.innerText= `Le player a infligé au montre ${playerDamage} de dégats`;
-        pPlayer.setAttribute("class","playerAction")
+        pPlayer.innerText= !heal? `Le player a infligé au montre ${playerDamage} de dégats`:`Le player vient de se soigner de ${playerDamage} points!`;
+        pPlayer.setAttribute("class",!heal?"playerAction":"playerHeal")
         pMonster.innerText=`Le monstre a infligé au player ${monsterDamage} de dégats`;
         pMonster.setAttribute("class","monsterAction")
         areaAction.appendChild(pPlayer)

@@ -104,6 +104,14 @@
   font-weight: bold;
 }
 
+.playerHeal {
+  background-color: #15dd15;
+  margin: 0;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
 .monsterAction {
   background-color: #f74949;
   margin: 0;
