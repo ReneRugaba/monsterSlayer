@@ -13,12 +13,20 @@ let lifePlayer = 100;
 let monsterLife = 100;
 let heal = 10;
 
+/**
+ * function start the game
+ * @param {Event} e 
+ */
 function play(e){
     e.stopPropagation();
     buttonStart.style.display = "none";
     buttonsGameStart.style.display= "block";
 }
 
+/**
+ * function damage button 
+ * @param {Event} e 
+ */
 function damageFunction(e){
     e.stopPropagation();
     damageMonster = Math.floor(Math.random()*(10-3)+3);
@@ -30,8 +38,15 @@ function damageFunction(e){
     barreMonster.style.width = `${monsterLife}%`;
     barreMonster.childNodes[1].innerText = `${monsterLife} %`
     setInActionArea(damageMonster,damagePlayer);
+    if (lifePlayer<=1 || monsterLife<=1) {
+        giveUp()
+    }
 }
 
+/**
+ * function for special damage button
+ * @param {Event} e 
+ */
 function specialDamageFunction(e){
     e.stopPropagation();
     damageMonster = Math.floor(Math.random()*(20-5)+5);
@@ -43,9 +58,16 @@ function specialDamageFunction(e){
     barreMonster.style.width = `${monsterLife}%`;
     barreMonster.childNodes[1].innerText = `${monsterLife} %`
     setInActionArea(damageMonster,damagePlayer);
+    if (lifePlayer<=1 || monsterLife<=1) {
+        giveUp()
+    }
 
 }
 
+/**
+ * function Heal button
+ * @param {Event} e 
+ */
 function healPlayer (e){
     e.stopPropagation();
     damagePlayer = Math.floor(Math.random()*(10-5)+5);
@@ -57,6 +79,9 @@ function healPlayer (e){
    
 }
 
+/**
+ * function give up button
+ */
 function giveUp(){
     lifePlayer = 100;
     monsterLife = 100;
@@ -70,6 +95,12 @@ function giveUp(){
     setInActionArea(0,0,true)
 }
 
+/**
+ * 
+ * @param {Number} playerDamage 
+ * @param {Number} monsterDamage 
+ * @param {Boolean} end 
+ */
 function setInActionArea(playerDamage, monsterDamage,end=false){
     if(!end){
         const pPlayer = document.createElement("p");
@@ -86,6 +117,7 @@ function setInActionArea(playerDamage, monsterDamage,end=false){
 }
 
 
+/* here all events listener in DOM that use all functions buttons */
 
 giveUpButton.addEventListener("click", giveUp)
 
